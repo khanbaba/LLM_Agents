@@ -125,14 +125,9 @@ class AccommodationAgent:
 
         return response_message.content
 
-# Example usage
-if __name__ == "__main__":
-    # Replace with your actual OpenAI API key
-    API_KEY = os.getenv('OPENAI_API_KEY', '')
-    
-    agent = AccommodationAgent(API_KEY)
-    
-    # Example query
-    user_query = "چه اقامتگاه هایی رو توصیه می کنی برای شمال رفتن"
+API_KEY = os.getenv('OPENAI_API_KEY', '')
+agent = AccommodationAgent(API_KEY) 
+
+def get_query_from_agent(user_query: str):
     response = agent.process_user_query(user_query)
-    print(response)
+    return response
