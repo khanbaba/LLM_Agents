@@ -89,9 +89,13 @@ def process_room_details():
         if summary:
             # Extract metadata
             metadata = {
-                "price": str(item.get('price', 'N/A')),
-                "city": str(item.get('city', 'N/A')),
-                "id": str(item.get('id', str(idx)))
+                "min_price": str(item.get('min_price', 'N/A')),
+                "extra_price": str(item.get('extra_price', 'N/A')),
+                "city": str(item.get('city', {}).get('name', 'N/A')),
+                "title": str(item.get('title', 'N/A')),
+                "description": str(item.get('description', 'N/A')),
+                "id": str(item.get('id', str(idx))),
+                "url": str(item.get('url', 'N/A')),
             }
             
             # Add to ChromaDB
