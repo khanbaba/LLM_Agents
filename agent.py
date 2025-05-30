@@ -112,15 +112,15 @@ class AccommodationAgent:
                 messages.append(tool_response)
 
                 # Get a new response from the model
-                second_response = self.client.chat.completions.create(
-                    model="gpt-4o-mini",
-                    messages=messages
-                )
+                # second_response = self.client.chat.completions.create(
+                #     model="gpt-4o-mini",
+                #     messages=messages
+                # )
                 
                 # Return both the tool response and the model's response
                 return {
                     "tool_response": search_results,
-                    "model_response": second_response.choices[0].message.content
+                    # "model_response": second_response.choices[0].message.content
                 }
 
         return response_message.content
