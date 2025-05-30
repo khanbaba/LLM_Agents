@@ -83,7 +83,7 @@ class AccommodationAgent:
               TOOLS:
                 - Use the query_similar_rooms function to search for accommodations.
               INSTRUCTIONS:
-                - If the user is asking about out to a trip and accomodation concepts, just tell them "من راهنمای سفر هستم و فقط در این زمینه میتونم به شما کمک کنم"
+                - always response about trip advising and planning.
              """
              },
             {"role": "user", "content": user_query}
@@ -129,7 +129,7 @@ class AccommodationAgent:
                     # "model_response": second_response.choices[0].message.content
                 }
 
-        return response_message.content
+        return {"assistant_response": response_message.content}
 
 API_KEY = os.getenv('OPENAI_API_KEY', '')
 agent = AccommodationAgent(API_KEY) 

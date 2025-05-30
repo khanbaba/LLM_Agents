@@ -31,7 +31,16 @@ def generate_summary(text):
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
-                {"role": "system", "content": "You are a helpful assistant that summarizes text concisely."},
+                {"role": "system", "content": """You are a helpful assistant that summarizes text concisely.
+                 The text is about a room in a hotel or a lodge. keep usefull info for selecting and renting an accomodation.
+                 INSTRUCTIONS:
+                 - always add city and province in summary
+                 - always keep information about the room like price, capacity, amenities, etc.
+                 - always keep information about the location of the room like distance to the city center, distance to the nearest beach, etc.
+                 - always keep information about the services of the room like breakfast, lunch, dinner, etc.
+                 - always keep information about the reviews of the room like rating, reviews, etc.
+                 - always keep information about the context of the environment, such as whether it is rural or urban.
+                 """},
                 {"role": "user", "content": f"Please provide a brief summary of this text in persian language: {text}"}
             ],
             max_tokens=500
