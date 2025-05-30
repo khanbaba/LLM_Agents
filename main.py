@@ -15,9 +15,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/chat")
-async def chat(query: str):
-    if not query:
-        return {"status": "error", "message": "No query provided"}
-    response = get_query_from_agent(query)
+@app.get("/user-prompt")
+async def user_prompt(prompt: str):
+    if not prompt:
+        return {"status": "error", "message": "No prompt provided"}
+    response = get_query_from_agent(prompt)
     return {"status": "success", "response": response}

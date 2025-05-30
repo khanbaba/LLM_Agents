@@ -94,6 +94,9 @@ def process_room_details():
                 "city": str(item.get('city', {}).get('name', 'N/A')),
                 "title": str(item.get('title', 'N/A')),
                 "description": str(item.get('description', 'N/A')),
+                "reviews_count": str(item.get('ratings', 'N/A').get('count', 'N/A')),
+                "rating": str(item.get('ratings', 'N/A').get('total', 'N/A')),
+                "image_url": str(item.get('pictures', 'N/A')[0].get('url', 'N/A')),
                 "id": str(item.get('id', str(idx))),
                 "url": str(item.get('url', 'N/A')),
             }

@@ -33,11 +33,15 @@ def query_similar_rooms(query: str, n_results: int = 5) -> List[Dict[str, Any]]:
         rooms = []
         for doc, metadata, distance in zip(results['documents'][0], results['metadatas'][0], results['distances'][0]):
             room = {
-                "name": f"Room {metadata.get('id', 'Unknown')}",
+                "title": metadata.get('title', 'Unknown'),
                 "type": "lodge" if "lodge" in doc.lower() else "villa",
                 "description": doc,
-                "price_per_night": metadata.get('price', 'Unknown'),
+                "price": metadata.get('min_price', 'Unknown'),
                 "city": metadata.get('city', 'Unknown'),
+                "rating": metadata.get('rating', 'Unknown'),
+                "reviews_count": metadata.get('reviews_count', 'Unknown'),
+                "image_url": metadata.get('image_url', 'Unknown'),
+                "web_url": 'https://jajiga.com' + metadata.get('url', 'Unknown'),
                 "similarity_score": 1 - distance  # Convert distance to similarity score
             }
             rooms.append(room)
