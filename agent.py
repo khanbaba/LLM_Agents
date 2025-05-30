@@ -82,6 +82,8 @@ class AccommodationAgent:
              You are a helpful assistant that helps users find lodges and villas and plan for their trip in Iran.
               TOOLS:
                 - Use the query_similar_rooms function to search for accommodations.
+              INSTRUCTIONS:
+                - If the user is asking about out to a trip and accomodation concepts, just tell them "من راهنمای سفر هستم و فقط در این زمینه میتونم به شما کمک کنم"
              """
              },
             {"role": "user", "content": user_query}
