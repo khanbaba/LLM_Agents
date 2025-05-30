@@ -81,7 +81,7 @@ def process_room_details():
     }
 
     # Process each item
-    for idx, item in enumerate(tqdm(room_details[:5], desc="Processing items")):
+    for idx, item in enumerate(tqdm(room_details[:150], desc="Processing items")):
         summary = generate_summary(str(item))
 
         print(summary)
