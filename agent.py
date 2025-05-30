@@ -19,7 +19,7 @@ collection = chroma_client.get_or_create_collection(
     )
 )
 
-def query_similar_rooms(query: str, n_results: int = 5) -> List[Dict[str, Any]]:
+def query_similar_rooms(query: str, n_results: int = 3) -> List[Dict[str, Any]]:
     """
     Tool to search for lodges and villas based on user query using ChromaDB.
     """
